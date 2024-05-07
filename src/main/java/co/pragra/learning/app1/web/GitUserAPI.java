@@ -20,6 +20,7 @@ public class GitUserAPI {
     @GetMapping("/get/{login}")
     public Optional<GitUser> getAllDataFromGitHub(@PathVariable String login){
         Optional<GitUser> gitUser = gitUserService.findByLogin(login);
+        System.out.println("hello");
         return gitUser;
     }}
 
