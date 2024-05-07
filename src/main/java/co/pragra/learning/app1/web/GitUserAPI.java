@@ -18,17 +18,10 @@ public class GitUserAPI {
     @Autowired
     GitUserService gitUserService;
     @GetMapping("/get/{login}")
-    public GitUser getAllDataFromGitHub(@PathVariable String login){
-        if (gitUserService.findByLogin(login).isPresent()){
-           return gitUserService.findByLogin(login).get();
-        }
-        else {
-
-            WebClient webClient = WebClient.builder().build();
-        GitUser user = webClient.get().uri("https://api.github.com/users/" + login).retrieve().bodyToMono(GitUser.class).block();
-        gitUserService.saveAllGitUserInDb(user);
-        return user;
-        }}
+    public Optional<GitUser> getAllDataFromGitHub(@PathVariable String login){
+        Optional<GitUser> gitUser = gitUserService.findByLogin(login);
+        return gitUser;
+    }}
 
 
-}
+

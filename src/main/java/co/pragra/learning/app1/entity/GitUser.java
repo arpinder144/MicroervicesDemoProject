@@ -15,7 +15,13 @@ public class GitUser {
     private Integer id;
     private String avatar_url;
     private String url;
-    private String html_url;
-    private String followers_url;
-    private String subscriptions_url;
+    private String name;
+    private String company;
+    private String location;
+    private String bio;
+    private String public_repos;
+    private String following;
+    private String followers;
+    private String created_at;
+    private String updated_at;
 }
